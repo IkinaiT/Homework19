@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Contact>
+
+@{
+    ViewData["Title"] = "Home Page";
+    var contacts = Model;
+}
+
+<div class="main-wrapper">
+    <h3>Список контактов</h3>
+
+    <div class="table-box">
+        <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+            </tr>
+        </thead>
+
+        <tbody>
+                @foreach (var contact in contacts)
+                {
+                    var contactId = contact.Id;
+                    <tr>
+                        <td>
+                            <a href="/Details/@contactId">@contactId</a>
+                        </td>
+                        <td>@contact.LastName</td>
+                        <td>@contact.MiddleName</td>
+                        <td>@contact.FirstName</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+    </div>
+</div>

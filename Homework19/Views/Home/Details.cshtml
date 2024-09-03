@@ -1,0 +1,35 @@
+﻿@model Contact
+
+@{
+    ViewData["Title"] = "Contact info";
+    var contact = Model;
+}
+
+<div class="main-wrapper">
+    <div class="card-box">
+        <div class="info-box">
+            <img src="/icons/account.png" />
+
+            <p>@contact.LastName @contact.FirstName @contact.MiddleName</p>
+        </div>
+
+        <div class="info-box">
+            <img src="/icons/phone.png" />
+
+            <p>@contact.PhoneNumber</p>
+        </div>
+
+        <div class="info-box">
+            <img src="/icons/address.png" />
+
+            <p>@contact.Address</p>
+        </div>
+
+        <div class="info-box">
+            <img src="/icons/description.png" />
+
+            <p>@contact.Description</p>
+        </div>
+
+    </div>
+</div>
