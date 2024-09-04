@@ -43,9 +43,7 @@ td {
         font-weight: bold
     }
 
-        td a:hover {
-            width: 100%;
-            display: block;
+        button:hover {
             color: blue;
             text-decoration: underline;
         }
@@ -62,21 +60,33 @@ tbody tr:nth-child(odd) {
 tbody tr:hover {
     background: linear-gradient(260deg, rgba(255,255,255,1) 0%, #6f7aff33 25%, #6f7aff33 75%, rgba(255,255,255,1) 100%);
 }
-/*th, td {
-    border: 1px solid #ddd;
-    font-size: 18px
+
+button {
+    background: none;
+    border: none;
+    color: black;
+    text-decoration: none;
+    font-weight: bold
 }
 
-    th a{
-        width: 100%;
-        display: block;
 
+    button:hover {
+        color: red;
+        text-decoration: underline;
     }
 
-tbody tr:nth-child(odd) {
-    background: #eee
+.add-button {
+    border: 1px solid gray;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align:center
 }
 
-    tbody tr:hover{
-        background: #6f7aff33
-    }*/
+    .add-button:hover {
+        background: linear-gradient(260deg, rgba(255,255,255,1) 0%, #6f7aff33 25%, #6f7aff33 75%, rgba(255,255,255,1) 100%);
+        
+    }

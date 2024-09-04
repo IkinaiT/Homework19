@@ -6,5 +6,7 @@ namespace Homework19.Services.Interfaces
     {
         public IEnumerable<Contact> GetContacts();
         public Contact? GetContact(int id);
+        public bool DeleteContact(int id);
+        public bool AddContact(Contact contact);
     }
 }

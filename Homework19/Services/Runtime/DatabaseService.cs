@@ -87,5 +87,42 @@ namespace Homework19.Services.Runtime
 
             return result;
         }
+
+        public bool DeleteContact(int id)
+        {
+            var contact = GetContact(id);
+
+            if(contact == null)
+                return false;
+
+            try
+            {
+                _context.Contacts.Remove(contact);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool AddContact(Contact contact)
+        {
+            try
+            {
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+
+            return true;
+        }
     }
 }

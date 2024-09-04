@@ -1,0 +1,25 @@
+﻿@model Contact
+
+<form method="post">
+    <div class="main-wrapper">
+        <input id="text-input-1" type="text" placeholder="Фамилия" oninput="validation()" name="@nameof(Contact.LastName)" />
+        <input id="text-input-2" type="text" placeholder="Имя" oninput="validation()" name="@nameof(Contact.FirstName)" />
+        <input id="text-input-3" type="text" placeholder="Отчество" oninput="validation()" name="@nameof(Contact.MiddleName)" />
+        <input id="text-input-4" type="tel" placeholder="Номер телефона" oninput="validation()" name="@nameof(Contact.PhoneNumber)" />
+        <input id="text-input-5" type="text" placeholder="Адрес" oninput="validation()" name="@nameof(Contact.Address)" />
+        <input id="text-input-6" type="text" placeholder="Примечание" oninput="validation()" name="@nameof(Contact.Description)" />
+        <button disabled id="submit-button" type="submit">Добавить</button>
+    </div>
+</form>
+
+<script>
+    function validation() {
+        document.getElementById('submit-button').disabled =
+            document.getElementById('text-input-1').value == "" ||
+            document.getElementById('text-input-2').value == "" ||
+            document.getElementById('text-input-3').value == "" ||
+            document.getElementById('text-input-4').value == "" ||
+            document.getElementById('text-input-5').value == "" ||
+            document.getElementById('text-input-6').value == "";
+    }
+</script>

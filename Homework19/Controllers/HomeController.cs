@@ -15,10 +15,43 @@ namespace Homework19.Controllers
             return View(_databaseService.GetContacts());
         }
 
+        [HttpGet ("ErrorPage")]
+        public IActionResult ErrorPage()
+        {
+            object result = "Непредвиденная ошибка! Вернитесь на главную страницу и повторите попытку!";
+            return View(result);
+        }
+
+        [HttpGet("Add")]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
         [HttpGet ("Details/{id}")]
         public IActionResult Details([FromRoute] int id)
         {
             return View(_databaseService.GetContact(id));
+        }
+
+        [HttpPost("Delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            var result = _databaseService.DeleteContact(id);
+            if (result)
+                return Redirect("/");
+
+            return Redirect("~/ErrorPage");
+        }
+
+        [HttpPost("Add")]
+        public IActionResult Add(Contact contact)
+        {
+            var result = _databaseService.AddContact(contact);
+            if (result)
+                return Redirect("/");
+
+            return Redirect("~/ErrorPage");
         }
 
         public IActionResult Privacy()
@@ -31,5 +64,7 @@ namespace Homework19.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }

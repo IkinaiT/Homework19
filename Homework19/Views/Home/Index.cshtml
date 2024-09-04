@@ -16,6 +16,7 @@
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Отчество</th>
+                <th></th>
             </tr>
         </thead>
 
@@ -30,9 +31,16 @@
                         <td>@contact.LastName</td>
                         <td>@contact.MiddleName</td>
                         <td>@contact.FirstName</td>
+                        <td>
+                            <form action="/Delete/@contactId" method="post">
+                                <button type="submit">Удалить</button>
+                            </form>
+                        </td>
                     </tr>
                 }
         </tbody>
     </table>
     </div>
+
+    <a class="add-button" href="/Add">Добавить</a>
 </div>
