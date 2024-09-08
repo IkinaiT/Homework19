@@ -17,6 +17,7 @@
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
 
@@ -26,14 +27,19 @@
                     var contactId = contact.Id;
                     <tr>
                         <td>
-                            <a href="/Details/@contactId">@contactId</a>
+                            <a class="info-button" href="/Details/@contactId">@contactId</a>
                         </td>
                         <td>@contact.LastName</td>
                         <td>@contact.MiddleName</td>
                         <td>@contact.FirstName</td>
                         <td>
+                            <form action="/Edit/@contactId" method="get">
+                                <button class="edit-button" type="submit">Редактировать</button>
+                            </form>
+                        </td>
+                        <td>
                             <form action="/Delete/@contactId" method="post">
-                                <button type="submit">Удалить</button>
+                                <button class="delete-button" type="submit">Удалить</button>
                             </form>
                         </td>
                     </tr>

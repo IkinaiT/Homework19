@@ -1,0 +1,22 @@
+﻿.main-wrapper {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    user-select: none;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+    .main-wrapper input, .main-wrapper button {
+        border: 1px solid gray;
+        border-radius: 12px;
+        padding: 12px;
+        background: none
+    }
+
+        .main-wrapper button:hover:enabled {
+            background: linear-gradient(260deg, rgba(255,255,255,1) 0%, #6f7aff33 25%, #6f7aff33 75%, rgba(255,255,255,1) 100%);
+        }

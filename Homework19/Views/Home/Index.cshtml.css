@@ -35,20 +35,6 @@ td {
     padding: 4px 8px
 }
 
-    td a {
-        width: 100%;
-        display: block;
-        color: black;
-        text-decoration: none;
-        font-weight: bold
-    }
-
-        button:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-
     td:last-of-type {
         border-right: none
     }
@@ -89,4 +75,41 @@ button {
     .add-button:hover {
         background: linear-gradient(260deg, rgba(255,255,255,1) 0%, #6f7aff33 25%, #6f7aff33 75%, rgba(255,255,255,1) 100%);
         
+    }
+
+.info-button {
+    width: 100%;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold
+}
+
+    .info-button:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+.delete-button {
+    width: 100%;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold
+}
+
+    .delete-button:hover {
+        color: red;
+        text-decoration: underline;
+    }
+.edit-button {
+    width: 100%;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold
+}
+
+    .edit-button:hover {
+        color: green;
+        text-decoration: underline;
     }

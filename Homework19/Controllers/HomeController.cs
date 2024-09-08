@@ -10,10 +10,7 @@ namespace Homework19.Controllers
         private readonly ILogger<HomeController> _logger = logger;
         private readonly IDatabaseService _databaseService = databaseService;
 
-        public IActionResult Index()
-        {
-            return View(_databaseService.GetContacts());
-        }
+        public IActionResult Index() => View(_databaseService.GetContacts());
 
         [HttpGet ("ErrorPage")]
         public IActionResult ErrorPage()
@@ -23,16 +20,21 @@ namespace Homework19.Controllers
         }
 
         [HttpGet("Add")]
-        public IActionResult Add()
+        public IActionResult Add() => View();
+
+        [HttpGet("Edit/{id}")]
+        public IActionResult Edit([FromRoute] int id)
         {
-            return View();
+            var result = _databaseService.GetContact(id);
+
+            if (result == null)
+                return Redirect("~/ErrorPage");
+
+            return View(result);
         }
 
-        [HttpGet ("Details/{id}")]
-        public IActionResult Details([FromRoute] int id)
-        {
-            return View(_databaseService.GetContact(id));
-        }
+        [HttpGet("Details/{id}")]
+        public IActionResult Details([FromRoute] int id) => View(_databaseService.GetContact(id));
 
         [HttpPost("Delete/{id}")]
         public IActionResult Delete(int id)
@@ -54,17 +56,21 @@ namespace Homework19.Controllers
             return Redirect("~/ErrorPage");
         }
 
-        public IActionResult Privacy()
+        [HttpPost("Edit")]
+        public IActionResult Edit(Contact contact)
         {
-            return View();
+            var result = _databaseService.EditContact(contact);
+            if (result)
+                return Redirect("/");
+
+            return Redirect("~/ErrorPage");
         }
+
+        public IActionResult Privacy() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
-        
+
     }
 }

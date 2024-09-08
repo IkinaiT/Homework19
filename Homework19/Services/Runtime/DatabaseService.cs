@@ -124,5 +124,30 @@ namespace Homework19.Services.Runtime
 
             return true;
         }
+        
+        public bool EditContact(Contact contact)
+        {
+            try
+            {
+                var entity = _context.Contacts.First(_ => _.Id == contact.Id);
+                entity.FirstName = contact.FirstName;
+                entity.LastName = contact.LastName;
+                entity.PhoneNumber = contact.PhoneNumber;
+                entity.MiddleName = contact.MiddleName;
+                entity.Address = contact.Address;
+                entity.Description = contact.Description;
+
+                _context.Update(entity);
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+
+            return true;
+        }
     }
 }
